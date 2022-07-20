@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/marufmax/larago"
 	"log"
 	"os"
@@ -15,7 +16,6 @@ func initApplication() *application {
 
 	lar := &larago.Larago{
 		AppName: "My AppLiCaTiOn",
-		Debug:   true,
 		Version: "1.0.0",
 	}
 	err = lar.New(path)
@@ -23,6 +23,8 @@ func initApplication() *application {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("Debug is set to", lar.Debug)
 
 	app := &application{
 		App: lar,
